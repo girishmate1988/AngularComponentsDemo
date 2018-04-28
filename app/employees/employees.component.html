@@ -1,0 +1,86 @@
+<!--<p>This is a Employees component</p>-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      First Name: 
+    </div>
+    <div class="col-md-2" style="padding-top: 2px;">
+      <span ><input  type="text" [(ngModel)]="firstName"></span>    
+    </div>
+    <div class="col-md-8">
+      My First name is <strong>{{firstName}}</strong>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2">
+        Last Name  
+      </div>
+      <div class="col-md-2" style="padding-top: 2px;">
+          <span ><input  type="text" [(ngModel)]="lastName"></span>      
+        </div>
+      <div class="col-md-8">
+        My Last name is <strong>{{lastName}}</strong>
+      </div>
+    </div>
+    <div class="row" *ngIf='showDetails'>
+      <div class="col-md-2">
+          Gender 
+        </div>
+        <div class="col-md-2" style="padding-top: 2px;">
+            <span ><input  type="text" [(ngModel)]="gender"></span>    
+        </div>
+        <div class="col-md-8">
+          I am a <strong>{{gender ? gender : 'Not Applicable'}}</strong>
+        </div>
+      </div>
+      <div class="row" *ngIf='showDetails'>
+          <div class="col-md-2">
+            Age 
+          </div>
+          <div class="col-md-2" style="padding-top: 2px;">
+              <span >
+                <input class="form-control" 
+                 type="text"
+                 [(ngModel)]="age">
+                </span>    
+          </div>
+          <div class="col-md-8">
+            My Age name is <strong>{{age}}</strong>
+          </div>
+      </div>
+        <p>{{ 'Employee Full Name: '+ getfullName()}}</p>            
+        <br />
+        <div class="row">
+           <div class="col-md-6">
+              {{ firstName }}  
+           </div>            
+           <div class="col-md-6">
+              <button 
+              class="btn btn-primary"
+              (click)="Btn_OnClick()">Reset Name</button>
+           </div>
+        </div>
+    
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+          {{ firstName }}             
+          <button (click)="toggleDetails()">
+              {{this.showDetails ? 'Hide ' : 'Add More '}}Details
+            </button>          
+        </div>
+        <div class="col-md-8">
+            <button [hidden]= "!this.showDetails">
+                Save Details
+              </button>          
+        </div>
+     </div>    
+    <br />
+    <!--<div class="row">
+        <div class="col-md-12">
+            <app-employeeList></app-employeeList>  
+        </div>
+     </div>-->
+    </div>
+

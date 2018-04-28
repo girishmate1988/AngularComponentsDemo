@@ -1,0 +1,44 @@
+<!--<p>This is the Server Component</p>-->
+
+<h3>Addition of two numbers</h3>
+<input type = "number" [(ngModel)] = "num1"/> + <input type="number" [(ngModel)] = "num2"/> 
+= <span>{{(num1?num1:0) + (num2?num2:0)}}</span>  
+
+<h3>Substraction of two numbers</h3>
+<input type="number" [(ngModel)] = "num3"/> - <input type="number" [(ngModel)] = "num4"/> 
+= <span>{{num3 - num4}}</span>  
+
+<h3>Server status</h3>
+<p 
+[style.backgroundColor]="isGreen ? 'Green' : 'red'"
+[ngClass]="{online: ServerStatus ==='Online'}">
+<!--[ngStyle]="{backgroundColor:getColor()}"-->
+<!--[ngClass]='addClass()'>-->
+<!--[class]="classesToApply">-->
+<!--[class.online] = "ServerStatus">-->
+
+{{'Server'}} with the ID: <b>{{ServerID}}</b> and Name: <b>{{ServerName}}</b> is <b>{{getServerStatus()}}</b></p>
+<!--<p [style.font-size.px]="fontSize">{{ServerName}}</p>-->
+<p [ngStyle]="addStyles()">{{ServerName}}</p>
+
+<button class="btn btn-primary" 
+        [disabled]="!allowNewServer"
+        (click)="OnCreateServer()">Add Server</button>
+<!--<p [innerText]="allowNewServer"></p> -->
+<!--{{ServerCreationStatus}}-->
+<p *ngIf="ServerCreated; else noServer">{{ServerCreationStatus}}</p> 
+<ng-template #noServer>
+        <p>No Server was created</p> 
+</ng-template> 
+<!--<app-server *ngFor="let server of servers12">Servers</app-server>-->
+<!--<label>Server Name</label>-->
+<br /><br />
+
+<!--<input
+class="form-control"
+type="text"
+(input)="OnUpdateServerName($event)">-->
+<input
+class="form-control"
+[(ngModel)]="ServerName">
+<!--<p>Server Name:<b>{{ServerName? ServerName: 'Not found !'}}</b></p>-->
